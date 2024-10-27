@@ -1,4 +1,4 @@
-package com.TypewiseAlert;
+package TypewiseAlert;
 
 public class CoolingController {
     public void processCooling(String coolingType) {
