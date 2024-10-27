@@ -1,4 +1,4 @@
-package com.boschremoteassist.tpaconnect.mobile.adapter;
+package TypewiseAlert;
 
 public class MedActiveCoolingStrategy implements CoolingStrategy {
     @Override
