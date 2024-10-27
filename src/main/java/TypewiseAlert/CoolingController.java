@@ -1,4 +1,4 @@
-package com.boschremoteassist.tpaconnect.mobile.adapter;
+package com.TypewiseAlert;
 
 public class CoolingController {
     public void processCooling(String coolingType) {
