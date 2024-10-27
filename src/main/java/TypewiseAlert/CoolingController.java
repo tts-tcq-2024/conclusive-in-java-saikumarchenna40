@@ -14,8 +14,8 @@ public class CoolingController {
             case "hi_active":
                 context.setStrategy(new HiActiveCoolingStrategy());
                 break;
-            default:
-                throw new IllegalArgumentException("Invalid cooling type");
+         //   default:
+                //throw new IllegalArgumentException("Invalid cooling type");
         }
 
         context.executeStrategy();
