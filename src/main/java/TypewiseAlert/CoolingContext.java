@@ -1,4 +1,4 @@
-package com.TypewiseAlert;
+package TypewiseAlert;
 
 public class CoolingContext {
     private CoolingStrategy strategy;
