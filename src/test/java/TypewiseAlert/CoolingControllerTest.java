@@ -1,6 +1,6 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import TypewiseAlert.PassiveCoolingStrategy;
+import com.typewisealert.PassiveCoolingStrategy;
 
 import static org.junit.jupiter.api.Assertions.*;
 
