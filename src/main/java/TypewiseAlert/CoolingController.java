@@ -1,6 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
-
+import com.typewisealert.PassiveCoolingStrategy;
+import com.typewisealert.CoolingStrategy;
 public class CoolingController {
     private final Map<String, CoolingStrategy> strategyMap;
 
