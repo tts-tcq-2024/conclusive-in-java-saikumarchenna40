@@ -1,7 +1,36 @@
+public interface CoolingStrategy {
+    void handleCooling();
+}
+ 
+public class PassiveCoolingStrategy implements CoolingStrategy {
+    @Override
+    public void handleCooling() {
+        // Classify as low risk
+        System.out.println("Passive cooling: Low risk. Sending low message.");
+        // Code to send low message
+    }
+}
+ 
+public class MedActiveCoolingStrategy implements CoolingStrategy {
+    @Override
+    public void handleCooling() {
+        // Classify and send a high/medium message
+        System.out.println("Medium active cooling: Potential breach. Sending high message.");
+        // Code to send high message
+    }
+}
+ 
+public class HiActiveCoolingStrategy implements CoolingStrategy {
+    @Override
+    public void handleCooling() {
+        // Infer breach
+        System.out.println("High active cooling: Breach detected! Sending high message.");
+        // Code to send high message
+    }
+}
 import java.util.HashMap;
 import java.util.Map;
-import com.typewisealert.PassiveCoolingStrategy;
-import com.typewisealert.CoolingStrategy;
+
 public class CoolingController {
     private final Map<String, CoolingStrategy> strategyMap;
 
