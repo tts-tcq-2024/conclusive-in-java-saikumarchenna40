@@ -4,8 +4,7 @@ import java.util.Map;
 public interface CoolingStrategy {
     void handleCooling();
 }
- 
-public class PassiveCoolingStrategy implements CoolingStrategy {
+ class PassiveCoolingStrategy implements CoolingStrategy {
     @Override
     public void handleCooling() {
         // Classify as low risk
@@ -13,8 +12,7 @@ public class PassiveCoolingStrategy implements CoolingStrategy {
         // Code to send low message
     }
 }
- 
-public class MedActiveCoolingStrategy implements CoolingStrategy {
+ class MedActiveCoolingStrategy implements CoolingStrategy {
     @Override
     public void handleCooling() {
         // Classify and send a high/medium message
@@ -23,7 +21,7 @@ public class MedActiveCoolingStrategy implements CoolingStrategy {
     }
 }
  
-public class HiActiveCoolingStrategy implements CoolingStrategy {
+class HiActiveCoolingStrategy implements CoolingStrategy {
     @Override
     public void handleCooling() {
         // Infer breach
