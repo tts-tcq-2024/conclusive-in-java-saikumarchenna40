@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public interface CoolingStrategy {
+interface CoolingStrategy {
     void handleCooling();
 }
  class PassiveCoolingStrategy implements CoolingStrategy {
