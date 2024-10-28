@@ -1,3 +1,6 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public interface CoolingStrategy {
     void handleCooling();
 }
@@ -28,8 +31,6 @@ public class HiActiveCoolingStrategy implements CoolingStrategy {
         // Code to send high message
     }
 }
-import java.util.HashMap;
-import java.util.Map;
 
 public class CoolingController {
     private final Map<String, CoolingStrategy> strategyMap;
