@@ -41,6 +41,14 @@ public class CoolingControllerTest {
         // No assertion needed as we don't have a direct output, 
         // but we could verify the state of the controller or logs if needed.
         // Here we just assert that no exception is thrown.
-        assertDoesNotThrow(controller.processCooling("InvalidType"));
+       // assertDoesNotThrow(controller.processCooling("InvalidType"));
+        assertDoesNotThrow(
+new Executable() {    
+@Override
+public void execute() {   
+controller.processCooling("InvalidType"); 
+}
+}
+        );
     }
 }
