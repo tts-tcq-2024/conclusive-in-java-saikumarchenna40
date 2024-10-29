@@ -34,7 +34,12 @@ public class CoolingContextTest {
 
     @Test
     public void testExecuteStrategyWithoutSetting() {
-        IllegalStateException exception = assertThrows(IllegalStateException.class, context::executeStrategy);
+      IllegalStateException exception = assertThrows(IllegalStateException.class, new Executable() {
+    @Override
+    public void execute() {
+        context.executeStrategy();
+    }
+});
         assertEquals("Strategy not set", exception.getMessage());
     }
 
