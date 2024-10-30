@@ -41,17 +41,16 @@ public class CoolingControllerTest {
         assertTrue(outputStreamCaptor.toString().trim().contains(expectedOutput));
     }
 
-    @Test
+    @Test(expected = IllegalStateException.class)
     public void testProcessInvalidCoolingType() {
     try {
             coolingController.processCooling("Invalid");
-            fail("Expected IllegalStateException to be thrown");
         } catch (IllegalStateException e) {
             // Exception was thrown as expected
         }
     }
 
-    @Test
+    @Test(expected = IllegalStateException.class)
     public void testProcessCoolingWithoutSettingStrategy() {
         final CoolingContext context = new CoolingContext();
         try {
@@ -62,7 +61,7 @@ public class CoolingControllerTest {
                     context.executeStrategy();
                 }
             }.run();
-            fail("Expected IllegalStateException to be thrown");
+            
         } catch (IllegalStateException e) {
             // Exception was thrown as expected
         }
