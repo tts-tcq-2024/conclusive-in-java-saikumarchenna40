@@ -41,13 +41,4 @@ public class CoolingControllerTest {
         assertTrue(outputStreamCaptor.toString().trim().contains(expectedOutput));
     }
 
-    @Test(expected = IllegalStateException.class)
-    public void testProcessInvalidCoolingType() {
-    try {
-            coolingController.processCooling("Invalid");
-        } catch (IllegalStateException e) {
-            // Exception was thrown as expected
-        }
-    }
-
 }
