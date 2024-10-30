@@ -3,6 +3,7 @@
 
 //import static org.junit.jupiter.api.Assertions.*;
 import org.junit.Before;
+import org.junit.Test;
 
 public class CoolingControllerTest {
     private CoolingController controller;
