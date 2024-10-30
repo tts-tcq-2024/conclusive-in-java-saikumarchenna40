@@ -53,7 +53,7 @@ public class CoolingControllerTest {
 
     @Test
     public void testProcessCoolingWithoutSettingStrategy() {
-        CoolingContext context = new CoolingContext();
+        final CoolingContext context = new CoolingContext();
         try {
             // Call executeStrategy using an anonymous inner class
             new Runnable() {
