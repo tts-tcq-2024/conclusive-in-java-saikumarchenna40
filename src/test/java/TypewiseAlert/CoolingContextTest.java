@@ -26,7 +26,7 @@ class MockCoolingStrategy implements CoolingStrategy {
 public class CoolingContextTest {
  
     private CoolingContext coolingContext;
-    private CoolingStrategy mockStrategy; // A mock or dummy strategy
+    private CoolingStrategy mockStrategy; 
  
     @Before
     public void setUp() {
@@ -34,7 +34,6 @@ public class CoolingContextTest {
         mockStrategy = new CoolingStrategy() {
             @Override
             public void handleCooling() {
-                // Mock behavior for testing
                 System.out.println("Mock strategy handling cooling.");
             }
         };
@@ -43,8 +42,7 @@ public class CoolingContextTest {
     @Test
     public void testExecuteStrategyWithStrategySet() {
         coolingContext.setStrategy(mockStrategy);
-        coolingContext.executeStrategy(); // Should execute without exception
-        // You may want to verify the output, but for simplicity, we focus on no exceptions here.
+        coolingContext.executeStrategy();
     }
  
 }
