@@ -21,33 +21,47 @@ public class CoolingControllerTest {
     public void testProcessPassiveCooling() {
         coolingController.processCooling("Passive");
         String expectedOutput = "Passive cooling: Low risk. Sending low message.";
-        assertTrue(outputStreamCaptor.toString().trim().contains(expectedOutput);
+        assertTrue(outputStreamCaptor.toString().trim().contains(expectedOutput));
     }
 
     @Test
     public void testProcessMedActiveCooling() {
         coolingController.processCooling("Med_active");
         String expectedOutput = "Medium active cooling: Potential breach. Sending high message.";
-        assertTrue(outputStreamCaptor.toString().trim().contains(expectedOutput);
+        assertTrue(outputStreamCaptor.toString().trim().contains(expectedOutput));
     }
 
     @Test
     public void testProcessHiActiveCooling() {
         coolingController.processCooling("hi_active");
         String expectedOutput = "High active cooling: Breach detected! Sending high message.";
-        assertTrue(outputStreamCaptor.toString().trim().contains(expectedOutput);
+        assertTrue(outputStreamCaptor.toString().trim().contains(expectedOutput));
     }
 
     @Test
     public void testProcessInvalidCoolingType() {
-        assertThrows(IllegalStateException.class, () -> {
+    try {
             coolingController.processCooling("Invalid");
-        });
+            fail("Expected IllegalStateException to be thrown");
+        } catch (IllegalStateException e) {
+            // Exception was thrown as expected
+        }
     }
 
     @Test
     public void testProcessCoolingWithoutSettingStrategy() {
         CoolingContext context = new CoolingContext();
-        assertThrows(IllegalStateException.class, context::executeStrategy);
+        try {
+            // Call executeStrategy using an anonymous inner class
+            new Runnable() {
+                @Override
+                public void run() {
+                    context.executeStrategy();
+                }
+            }.run();
+            fail("Expected IllegalStateException to be thrown");
+        } catch (IllegalStateException e) {
+            // Exception was thrown as expected
+        }
     }
 }
