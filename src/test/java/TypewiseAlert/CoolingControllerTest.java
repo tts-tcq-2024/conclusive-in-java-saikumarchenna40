@@ -7,43 +7,47 @@ import org.junit.Test;
 import static org.junit.Assert.assertTrue;
 
 public class CoolingControllerTest {
-    private CoolingController controller;
-    private PassiveCoolingStrategyTest passiveStrategy;
-    private MedActiveCoolingStrategyTest medActiveStrategy;
-    private HiActiveCoolingStrategyTest hiActiveStrategy;
 
+    private CoolingController coolingController;
+    private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
+    
     @Before
     public void setUp() {
-        controller = new CoolingController();
-        passiveStrategy = new PassiveCoolingStrategyTest();
-        medActiveStrategy = new MedActiveCoolingStrategyTest();
-        hiActiveStrategy = new HiActiveCoolingStrategyTest();
+        coolingController = new CoolingController();
+        System.setOut(new PrintStream(outputStreamCaptor));
     }
 
     @Test
-    public void testProcessCoolingWithPassiveStrategy() {
-        controller.processCooling("Passive");
-        assertTrue(passiveStrategy.isHandled(), "Passive strategy should be executed.");
+    public void testProcessPassiveCooling() {
+        coolingController.processCooling("Passive");
+        String expectedOutput = "Passive cooling: Low risk. Sending low message.";
+        assertTrue(outputStreamCaptor.toString().trim().contains(expectedOutput);
     }
 
     @Test
-    public void testProcessCoolingWithMedActiveStrategy() {
-        controller.processCooling("Med_active");
-        assertTrue(medActiveStrategy.isHandled(), "Med_active strategy should be executed.");
+    public void testProcessMedActiveCooling() {
+        coolingController.processCooling("Med_active");
+        String expectedOutput = "Medium active cooling: Potential breach. Sending high message.";
+        assertTrue(outputStreamCaptor.toString().trim().contains(expectedOutput);
     }
 
     @Test
-    public void testProcessCoolingWithHiActiveStrategy() {
-        controller.processCooling("hi_active");
-        assertTrue(hiActiveStrategy.isHandled(), "Hi_active strategy should be executed.");
+    public void testProcessHiActiveCooling() {
+        coolingController.processCooling("hi_active");
+        String expectedOutput = "High active cooling: Breach detected! Sending high message.";
+        assertTrue(outputStreamCaptor.toString().trim().contains(expectedOutput);
     }
 
     @Test
-    public void testProcessCoolingWithInvalidStrategy() {
-        controller.processCooling("InvalidType");
-        // No assertion needed as we don't have a direct output, 
-        // but we could verify the state of the controller or logs if needed.
-        // Here we just assert that no exception is thrown.
-       // assertDoesNotThrow(controller.processCooling("InvalidType"));
+    public void testProcessInvalidCoolingType() {
+        assertThrows(IllegalStateException.class, () -> {
+            coolingController.processCooling("Invalid");
+        });
+    }
+
+    @Test
+    public void testProcessCoolingWithoutSettingStrategy() {
+        CoolingContext context = new CoolingContext();
+        assertThrows(IllegalStateException.class, context::executeStrategy);
     }
 }
