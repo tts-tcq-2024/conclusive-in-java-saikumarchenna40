@@ -25,7 +25,7 @@ public class CoolingContextTest {
     private CoolingContext context;
     private MockCoolingStrategy mockStrategy;
 
-    @BeforeEach
+    @Before
     public void setUp() {
         context = new CoolingContext();
         mockStrategy = new MockCoolingStrategy();
