@@ -7,9 +7,9 @@ import org.junit.Test;
 
 public class CoolingControllerTest {
     private CoolingController controller;
-    private PassiveCoolingStrategy passiveStrategy;
-    private MedActiveCoolingStrategy medActiveStrategy;
-    private HiActiveCoolingStrategy hiActiveStrategy;
+    private PassiveCoolingStrategyTest passiveStrategy;
+    private MedActiveCoolingStrategyTest medActiveStrategy;
+    private HiActiveCoolingStrategyTest hiActiveStrategy;
 
     @Before
     public void setUp() {
