@@ -51,13 +51,16 @@ public class CoolingContextTest {
         // You may want to verify the output, but for simplicity, we focus on no exceptions here.
     }
  
-   @Test(expected = IllegalStateException.class)
+   @Test
     public void testExecuteStrategyWithoutSettingStrategy() {
-        try {
-            coolingContext.executeStrategy();
-            
-        } catch (IllegalStateException e) {
-            // Exception was thrown as expected
-        }
+        boolean exceptionThrown = false;
+    try {
+        coolingContext.executeStrategy();
+    } catch (IllegalStateException e) {
+        exceptionThrown = true; // Set the flag to true if the exception is caught
+    }
+    if (!exceptionThrown) {
+        fail("Expected IllegalStateException to be thrown");
+    }
     }
 }
