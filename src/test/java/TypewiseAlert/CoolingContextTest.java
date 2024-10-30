@@ -3,6 +3,7 @@
 
 //import static org.junit.jupiter.api.Assertions.*;
 import org.junit.Before;
+import org.junit.Test;
 
 // Mock implementation of the CoolingStrategy interface for testing
 class MockCoolingStrategy implements CoolingStrategy {
