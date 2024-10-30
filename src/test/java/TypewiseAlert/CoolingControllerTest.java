@@ -9,7 +9,7 @@ public class CoolingControllerTest {
     private MedActiveCoolingStrategy medActiveStrategy;
     private HiActiveCoolingStrategy hiActiveStrategy;
 
-    @BeforeEach
+    @Before
     public void setUp() {
         controller = new CoolingController();
         passiveStrategy = new PassiveCoolingStrategyTest();
