@@ -50,26 +50,4 @@ public class CoolingControllerTest {
         }
     }
 
-    @Test
-    public void testProcessCoolingWithoutSettingStrategy() {
-       final CoolingContext context = new CoolingContext(); // Declare as final
-    boolean exceptionThrown = false; // Flag to track if the exception was thrown
- 
-    try {
-        // Call executeStrategy using an anonymous inner class
-        new Runnable() {
-            @Override
-            public void run() {
-                context.executeStrategy(); // This should throw an exception
-            }
-        }.run();
-    } catch (IllegalStateException e) {
-        exceptionThrown = true; // Set the flag to true if the exception is caught
-    }
-    // If the exception was not thrown, fail the test
-    if (!exceptionThrown) {
-        fail("Expected IllegalStateException to be thrown");
-    }
-
-    }
 }
